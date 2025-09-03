@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SoftSticky — PDF Sticky Notes</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data:;">
+  <link rel="stylesheet" href="style.css">
+  <!-- handwriting-like font: Patrick Hand (google) -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="toolbar">
+    <button id="openBtn">Open PDF / Image</button>
+    <select id="tool">
+      <option value="pen">Pen</option>
+      <option value="highlighter">Highlighter</option>
+      <option value="eraser">Eraser</option>
+      <option value="select">Select</option>
+    </select>
+    <input type="color" id="colorPicker" value="#ff0066" />
+    <label>Size <input type="range" id="size" min="1" max="60" value="6"/></label>
+    <button id="addNote">Add Sticky Note</button>
+    <button id="savePNG">Export Page Image</button>
+  </div>
+
+  <div id="content">
+    <canvas id="pdf-canvas" style="display:none"></canvas>
+    <div id="viewer">
+      <canvas id="annotation-canvas"></canvas>
+    </div>
+    <div id="sidebar">
+      <p><strong>Notes</strong></p>
+      <div id="notesList"></div>
+    </div>
+  </div>
+
+  <script src="node_modules/pdfjs-dist/build/pdf.min.js"></script>
+  <script src="node_modules/fabric/dist/fabric.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
+
